@@ -8,13 +8,14 @@ import Cookies
 #  Wall?
 # Github
 
-class Pacman:
+class Pacman(pygame.sprite.Sprite):
 	def __init__(self, x, y, img_file):
-		self.xcoord = x
-		self.ycoord = y
+		self.image = pygame.image.load(img_file).convert_alpha()
+		self.rect = self.image.get_rect()
+		self.rect.x = x
+		self.rect.y = y
+		self.speed = 5
 		self.direction = ''
-		self.hitGhost = False
-		self.curPoints = 0
 		self.isAlive = True
 		self.isAtWall = False
 	
@@ -23,23 +24,22 @@ class Pacman:
 		#how to keep the pacman moving continuously?
 		#how to program in the wall so that the pacman is unable to move when it hits it
 		#how to test code...
-		if direction == w:
+		if direction == "w":
 			self.direction = 'up'
-			while isAtWall == False:
-				self.ycoord += 1
-		if direction == a:
+			self.rect.y += 1
+		if direction == "a":
 			self.direction = 'right'
-			while isAtWall == False:
-				self.xcoord += 1
-		if direction == s:
+			self.rect.x += 1
+		if direction == "s":
 			self.direction = 'down'
-			while isAtWall == False:
-				self.ycoord -= 1
-		if direction == d:
+			self.rect.y -= 1
+		if direction == "d":
 			self.direction = 'left'
-			while isAtWall == False:
-				self.ycoord -= 1
-		return self.direction
+			self.rect.x -= 1
+	def move(self):
+		self.direction += self.speed
+		
+		
 	def.getPosition(self):
 		return xcoord, ycoord
 
