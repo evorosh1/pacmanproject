@@ -31,7 +31,7 @@ class Controller:
             #checks if pacman gets eaten by ghost
             for i in range(len(self.ghost)):
                 if(pygame.sprite.collide_rect(self.pacman, self.ghost[i])):
-                    if(self.ghost[i].edible = True):
+                    if(self.ghost[i].edible == True):
                         self.ghost[i].kill()
                         del self.ghost[i]
                     else:
