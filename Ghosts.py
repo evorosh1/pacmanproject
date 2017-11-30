@@ -9,35 +9,33 @@ class Ghost:
 	Params: 
 	Returns: none
 	"""
-	
 	def __init__(self, img_file, name, x, y, color, speed):
 		self.image = pygame.image.load(img_file).convert_alpha()
 		self.rect = self.image.get_rect()
 		self.name = name
 		self.rect.x = x 
 		self.rect.y = y
+		self.direction = ''
 		self.color = color
 		self.speed = speed
 		self.isAtWall = False
 	
-	def move_left(self):
-		self.rect.x -= self.speed
+	def turnRandom(self):
+		self.direction = random.choice('left', 'right', 'up', 'down')
 	
-	def move_right(self):
-		self.rect.x += self.speed
-	
-	def move_up(self):
-		self.rect.y += self.speed
-	
-	def move_down(self):
-		self.rect.y -= self.speed
-	
-	def move(self, random = FALSE):
-		Pacman.getPosition()
+		if self.direction == 'left'
+			self.rect.x -= self.speed
+		if self.direction == 'right'
+			self.rect.x += self.speed
+		if self.direction == 'up'
+			self.rect.y += self.speed
+		if self.direction == 'down'
+			self.rect.y -= self.speed
 	
 	def getPosition(self, self.rect):	
-		self.rect.x
+		return (self.rect.x, self.rect.y)
 	
 	def changeState(self):
 		pass
+		
 		
