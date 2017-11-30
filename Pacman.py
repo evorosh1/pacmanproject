@@ -1,9 +1,7 @@
 import Controller
 import Wall
 import pygame
-import turtle
 import Controller
-import Cookies
 
 #  Wall?
 # Github
@@ -14,11 +12,11 @@ class Pacman(pygame.sprite.Sprite):
 		self.rect = self.image.get_rect()
 		self.rect.x = x
 		self.rect.y = y
-		self.speed = 5
 		self.direction = ''
+		self.speed = 5
 		self.isAlive = True
 		self.isAtWall = False
-	
+	"""
 	def turn(self, direction):
 		#requires user input in wasd keys; first event will be a turn
 		#how to keep the pacman moving continuously?
@@ -36,12 +34,25 @@ class Pacman(pygame.sprite.Sprite):
 		if direction == "d":
 			self.direction = 'left'
 			self.rect.x -= 1
-	def move(self):
-		self.direction += self.speed
+	"""
+	def move_left(self):
+		self.rect.x -= self.speed
+	def move_right(self):
+		self.rect.x += self.speed
+	def move_up(self):
+		self.rect.y += self.speed
+	def move_down(self):
+		self.rect.y -= self.speed
+	
+	#def.getPosition(self):
 		
-		
-	def.getPosition(self):
-		return xcoord, ycoord
+	
+	def update(self):
+		keys = pygame.key.get_pressed()
+		if keys[pg.K_
+	
+	def getCookie(self):
+		self.curPoints += 1
 
 		
 		
