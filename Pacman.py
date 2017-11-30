@@ -43,16 +43,16 @@ class Pacman(pygame.sprite.Sprite):
 		self.rect.y += self.speed
 	def move_down(self):
 		self.rect.y -= self.speed
-	
 	#def.getPosition(self):
-		
-	
-	def update(self):
-		keys = pygame.key.get_pressed()
-		if keys[pg.K_
 	
 	def getCookie(self):
-		self.curPoints += 1
-
+		return True
+		
+	def die(self):
+		#self.isAlive = False
+		return True
+		
+	def update(self):
+		print("Updating the position")
 		
 		
