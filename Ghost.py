@@ -1,9 +1,9 @@
 import Controller
 import pygame
-import Wall
+#import Wall
 import random
 
-class Ghost:
+class Ghost(pygame.sprite.Sprite):
 	"""
 	Initializes a Ghost object
 	Params: 
@@ -15,7 +15,7 @@ class Ghost:
 		self.name = name
 		self.rect.x = x 
 		self.rect.y = y
-		self.size = pygame.Surface.get_size()
+		#self.size = pygame.Surface.get_size()
 		self.direction = ''
 		self.color = color
 		self.speed = speed
@@ -24,16 +24,16 @@ class Ghost:
 	def turnRandom(self):
 		self.direction = random.choice('left', 'right', 'up', 'down')
 	
-		if self.direction == 'left'
+		if self.direction == 'left':
 			self.rect.x -= self.speed
-		if self.direction == 'right'
+		if self.direction == 'right':
 			self.rect.x += self.speed
-		if self.direction == 'up'
+		if self.direction == 'up':
 			self.rect.y += self.speed
-		if self.direction == 'down'
+		if self.direction == 'down':
 			self.rect.y -= self.speed
 	
-	def getPosition(self, self.rect):	
+	def getPosition(self):	
 		return (self.rect.x, self.rect.y)
 	
 	def changeState(self):

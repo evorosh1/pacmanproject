@@ -2,7 +2,7 @@ import sys
 import pygame
 import random
 import Pacman
-import Ghosts
+import Ghost
 
 class Controller:
     def __init__(self, width = 800, height = 600):
@@ -14,6 +14,8 @@ class Controller:
         
     def mainLoop(self):
         pygame.key.set_repeat(1,50)
+		
+		self.Ghosts.add(Ghost.Ghost(img_file, name, c, y, orange, 6))
         while True:
             self.background.fill((250, 250, 250))
             for event in pygame.event.get():
@@ -37,6 +39,7 @@ class Controller:
                     else:
                         self.pacman.lives -= 1
                     break
+			
             if(self.pacman.lives == 0):
                 self.pacman.kill()
             #redraw the entire screen
