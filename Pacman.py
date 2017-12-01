@@ -6,12 +6,14 @@ class Pacman(pygame.sprite.Sprite):
 	def __init__(self, x, y, img_file):
 		self.image = pygame.image.load(img_file).convert_alpha()
 		self.rect = self.image.get_rect()
-		self.rect.x = x
-		self.rect.y = y
+		self.size = self.image.Surface.get_size()
+		self.rect.x = 2
+		self.rect.y = 2
 		self.direction = ''
 		self.speed = 5
 		self.isAlive = True
 		self.isAtWall = False
+		
 	def move_left(self):
 		self.rect.x -= self.speed
 	def move_right(self):
@@ -35,3 +37,6 @@ class Pacman(pygame.sprite.Sprite):
 		print("Updating the position")
 		
 		#array of images
+		#cant push to remote if you have not updated
+		#maybe make size of pacman smaller than rectangle
+		#is the image array in pacman or controller?

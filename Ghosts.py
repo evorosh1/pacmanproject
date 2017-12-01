@@ -15,6 +15,7 @@ class Ghost:
 		self.name = name
 		self.rect.x = x 
 		self.rect.y = y
+		self.size = pygame.Surface.get_size()
 		self.direction = ''
 		self.color = color
 		self.speed = speed

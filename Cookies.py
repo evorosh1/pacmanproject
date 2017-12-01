@@ -8,6 +8,7 @@ class Cookies:
 		self.rect = self.image.get_rect()
 		self.rect.x = x
 		self.rect.y = y
+		self.size = pygame.Surface.get_size()
 	
 	def disappear(self):
 		pass
