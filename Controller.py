@@ -1,8 +1,8 @@
 import sys
 import pygame
 import random
-import pacman
-import ghost
+import Pacman
+import Ghosts
 
 class Controller:
     def __init__(self, width = 800, height = 600):
