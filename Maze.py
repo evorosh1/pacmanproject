@@ -3,14 +3,19 @@ import sys
 import Ghost
 import Pacman
 class Maze:
+
     def __init__(self):
         pygame.init()
-        mywall = {
+        self.mymaze = {
             "%" = drawWall()
             "." = createPellet()
             "o" = createPowerPellet()
             "G" = insertGhost()
             "P" = insertPacman()}
+		self.empty_maze = pygame.image.load('empty_maze.png').convert()
+		self.pacman = pygame.load('.png').convert()
+	def showWall(self):
+		return image, image.get_rect()
     def drawWall(self):
         pygame.draw.line()
     def createPellet(self):

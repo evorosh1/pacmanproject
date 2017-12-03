@@ -4,21 +4,28 @@ import pygame
 import random
 
 class Ghost(pygame.sprite.Sprite):
+	self.red_ghost = ['red_left_1.png', 'red_left_2.png', 'red_right_1.png', 'red_right_2.png', 'red_up_1.png', 'red_up_2.png', 'red_down_1.png', 'red_down_2.png']
+	for i in self.red_ghost:
+			i = pygame.image.load(i)
+			self.red = self.image.get_rect()
+		self.blue_ghost = ['blue_left_1.png', 'blue_left_2.png', 'blue_right_1.png', 'blue_right_2.png', 'blue_up_1.png', 'blue_up_2.png', 'blue_down_1.png', 'blue_down_2.png']
+		for i in self.blue_ghost:
+			i = pygame.image.load(i)
 	"""
 	Initializes a Ghost object
 	Params: 
 	Returns: none
 	"""
-	def __init__(self, img_file, name, x, y, color, speed):
+	def __init__(self, img_file, x, y, speed):
+		super().__init__()
 		self.image = pygame.image.load(img_file).convert_alpha()
 		self.rect = self.image.get_rect()
-		self.name = name
 		self.rect.x = x 
 		self.rect.y = y
 		#self.size = pygame.Surface.get_size()
 		self.direction = ''
-		self.color = color
 		self.speed = speed
+		self.state = 'chase'
 		self.isAtWall = False
 	
 	def turnRandom(self):
@@ -37,6 +44,10 @@ class Ghost(pygame.sprite.Sprite):
 		return (self.rect.x, self.rect.y)
 	
 	def changeState(self):
-		pass
-		
+		if self.state == 'chase':
+			pass
+		if self.state == 'scatter':
+			pass
+		if self.state == 'frightened':
+			pass
 		
