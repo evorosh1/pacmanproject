@@ -4,6 +4,7 @@ import pygame
 import random
 
 class Ghost(pygame.sprite.Sprite):
+	"""
 	self.red_ghost = ['red_left_1.png', 'red_left_2.png', 'red_right_1.png', 'red_right_2.png', 'red_up_1.png', 'red_up_2.png', 'red_down_1.png', 'red_down_2.png']
 	for i in self.red_ghost:
 			i = pygame.image.load(i)
@@ -11,6 +12,8 @@ class Ghost(pygame.sprite.Sprite):
 		self.blue_ghost = ['blue_left_1.png', 'blue_left_2.png', 'blue_right_1.png', 'blue_right_2.png', 'blue_up_1.png', 'blue_up_2.png', 'blue_down_1.png', 'blue_down_2.png']
 		for i in self.blue_ghost:
 			i = pygame.image.load(i)
+			
+	"""
 	"""
 	Initializes a Ghost object
 	Params: 

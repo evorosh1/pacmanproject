@@ -6,10 +6,11 @@ class Pacman(pygame.sprite.Sprite):
 	def __init__(self, x, y, img_file):
 		super().__init__()
 		pygame.init()
-		self.image = ['pacman_whole.png']
+		self.rect = []
+		self.image = ['pacman_whole.png','pacman_right_1.png','pacman_right_2.png','pacman_left_1.png','pacman_left_2.png','pacman_up_1.png','pacman_up_2.png','pacman_down_1.png','pacman_down_2.png']
 		for i in self.image:
 			i = pygame.image.load(i).convert_alpha()
-		self.rect = self.image.get_rect()
+			self.rect.append(i.get_rect())
 		#self.size = self.image.Surface.get_size()
 		self.rect.x = 2
 		self.rect.y = 2
