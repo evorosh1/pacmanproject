@@ -1,7 +1,7 @@
 import sys
 import pygame
 import random
-from Pacman import *
+import Pacman
 import Ghost
 from os import path
 
@@ -11,7 +11,7 @@ class Controller:
 		self.width = width
 		self.height = height
 		self.screen = pygame.display.set_mode((self.width, self.height))
-		self.pacman = Pacman(100, 100, 'pacman_whole.png')
+		self.pacman = Pacman.Pacman(100, 100, 'pacman_whole.png')
 		self.ghosts = pygame.sprite.Group()
 		self.background = pygame.Surface(self.screen.get_size()).convert()
 	def mainLoop(self):

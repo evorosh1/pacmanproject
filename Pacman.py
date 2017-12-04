@@ -1,10 +1,9 @@
-import Controller
-#import Wall
 import pygame
 
-class Pacman(pygame.sprite.Sprite):
+class Pacman():
 	def __init__(self, x, y, img_file):
-		super().__init__()
+		#super().__init__()
+		#super().__init__()
 		pygame.init()
 		self.rect = []
 		self.image = ['pacman_whole.png','pacman_right_1.png','pacman_right_2.png','pacman_left_1.png','pacman_left_2.png','pacman_up_1.png','pacman_up_2.png','pacman_down_1.png','pacman_down_2.png']

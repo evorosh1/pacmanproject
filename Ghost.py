@@ -1,4 +1,3 @@
-import Controller
 import pygame
 #import Wall
 import random
