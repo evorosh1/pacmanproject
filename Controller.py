@@ -12,19 +12,26 @@ class Controller:
 		self.width = width
 		self.height = height
 		self.screen = pygame.display.set_mode((self.width, self.height))
+		self.background = pygame.Surface(self.screen.get_size()).convert()
 		self.pacman = Pacman.Pacman('pacman_whole.png')
 		self.ghosts = pygame.sprite.Group()
-		self.background = pygame.Surface(self.screen.get_size()).convert()
-	def mainLoop(self):
-		#self.text.addRect()
-		#self.text.addText()
-		pygame.key.set_repeat(1, 30)
 		self.ghosts.add(Ghost.Ghost('red_left_2.png', 170, 80, 6))
 		self.ghosts.add(Ghost.Ghost('blue_up_2.png', 190, 80, 6))
 		self.ghosts.add(Ghost.Ghost('pink_down_2.png', 210, 80, 6))
 		self.ghosts.add(Ghost.Ghost('orange_up_2.png', 230, 80, 6))     
-		while True: #while what is true?
+		pacman.lives = len(self.ghosts)
+		
+		
+		
+	def mainLoop(self):
+		#self.text.addRect()
+		#self.text.addText()
+		pygame.key.set_repeat(1, 30)
+		running = True
+		while running:
 			self.background.fill((250, 250, 250))
+			pygame.Rect.inflate(self.maze_rect,(self.screen.get_width(), self.screen.get_height()))
+			self.screen.blit(self.maze, self.maze_rect)
 			for event in pygame.event.get():
 				if event.type == pygame.QUIT:
 					sys.exit()
@@ -54,28 +61,29 @@ class Controller:
 						#self.ghost.move()
 				#if event.type == pygame.KEYUP:
 				#checks if pacman gets eaten by ghost
-				#collisions = pygame.sprite.spritecollide(self
-				#collidable = pygame.sprite.collide_mask
-			for i in range(len(self.ghosts)):
+
+
 				if(pygame.sprite.spritecollideany(self.pacman, self.ghosts) == True):
 					if(self.ghosts.edible == True):
 						self.ghosts.kill()
 						del self.ghost
 					else:
-						self.pacman.lives -= 1
+						# kill pacman and restart game w/ eaten dots missing
 					break
-			
-			if(self.pacman.lives == 0):
-				self.pacman.kill()
-				#redraw the entire screen
-				self.screen.blit(self.background, (0, 0))
-				self.pacman.draw(self.screen)
-				pygame.display.flip()
-				"""
-				redrew backgrounda
-				call update on all sprites
-				redraw sprites
-				call flip
+					
+				if(self.pacman.lives == 0):
+					self.pacman.kill()
+					#redraw the entire screen
+					self.screen.blit(self.background, (0, 0))
+					self.pacman.update()
+					self.ghosts.update()
+					self.pacman.draw(self.screen)
+					pygame.display.flip()
+					"""
+					redraw backgrounda
+					call update on all sprites
+					redraw sprites
+					call flip
 				"""
 def main():
 	main_window = Controller()
