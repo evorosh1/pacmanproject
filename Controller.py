@@ -69,9 +69,14 @@ class Controller:
 				self.pacman.kill()
 				#redraw the entire screen
 				self.screen.blit(self.background, (0, 0))
-				self.sprites.draw(self.screen)
+				self.pacman.draw(self.screen)
 				pygame.display.flip()
-
+				"""
+				redrew backgrounda
+				call update on all sprites
+				redraw sprites
+				call flip
+				"""
 def main():
 	main_window = Controller()
 	main_window.mainLoop()
