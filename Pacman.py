@@ -15,44 +15,45 @@ class Pacman(pygame.sprite.Sprite):
 		self.isAlive = True
 		self.isAtWall = False
 		self.index = 0
-		self.images = ['pacman_whole.png','pacman_right_1.png','pacman_right_2.png','pacman_left_1.png','pacman_left_2.png','pacman_up_1.png','pacman_up_2.png','pacman_down_1.png','pacman_down_2.png']
+		self.images = []
+		self.right_list = ['pacman_right_1.png','pacman_right_2.png']
+		self.left_list = ['pacman_left_1.png','pacman_left_2.png']
+		self.down_list = ['pacman_down_1.png','pacman_down_2.png']
+		self.up_list = ['pacman_up_1.png','pacman_up_2.png']
 		for i in self.images:
 			i = pygame.image.load(i)
-		self.image = self.images[self.index]
+	
 	def turn(self):
-		if direction == up:
-			self.direction = 'up'
-			self.ycoord += 1
+		if self.direction == up:
+			self.rect.y += 1
 		if direction == right:
 			self.direction = 'right'
-			self.xcoord += 1
+			self.rect.x += 1
 		if direction == down:
 			self.direction = 'down'
-			self.ycoord -= 1
+			self.rect.y -= 1
 		if direction == left:
 			self.direction = 'left'
-			self.ycoord -= 1
+			self.rect.y -= 1
 
 	def move_left(self):
-		self.x -= 1
+		self.direction = "left"
+		self.images = self.left_list
 	def move_right(self):
 		self.x += 1
+		self.images = self.right_list
 	def move_up(self):
 		self.y += 1
+		self.images = self.up_list
 	def move_down(self):
 		self.y -= 1
-		self.image = self.animation()
+		self.images = self.down_list
 	
 	def getPosition(self):
 		return (self.rect.x, self.rect.y)
 		
 	def	update(self):
-		"""
-		self.index += 1
-		if self.index >= len(self.images):
-			self.index = 0
-			
-		"""
+		self.turn()
 		if self.index < (len(self.images) - 1):
 			self.index += 1
 		else:
