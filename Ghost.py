@@ -29,19 +29,29 @@ class Ghost(pygame.sprite.Sprite):
 		self.speed = speed
 		self.state = 'chase'
 		self.isAtWall = False
-	
-	def turnRandom(self):
-		self.direction = random.choice('left', 'right', 'up', 'down')
-	
-		if self.direction == 'left':
-			self.rect.x -= self.speed
-		if self.direction == 'right':
-			self.rect.x += self.speed
-		if self.direction == 'up':
-			self.rect.y += self.speed
-		if self.direction == 'down':
-			self.rect.y -= self.speed
-	
+
+	def turn(self):
+		if direction == up:
+			self.direction = 'up'
+			self.ycoord += 1
+		if direction == right:
+			self.direction = 'right'
+			self.xcoord += 1
+		if direction == down:
+			self.direction = 'down'
+			self.ycoord -= 1
+		if direction == left:
+			self.direction = 'left'
+			self.ycoord -= 1
+
+	def move_left(self):
+		self.rect.x -= self.speed
+	def move_right(self):
+		self.rect.x += self.speed
+	def move_up(self):
+		self.rect.y += self.speed
+	def move_down(self):
+		self.rect.y -= self.speed
 	def getPosition(self):	
 		return (self.rect.x, self.rect.y)
 	
@@ -52,4 +62,5 @@ class Ghost(pygame.sprite.Sprite):
 			pass
 		if self.state == 'frightened':
 			pass
-		
+	def getState(self):
+		return self.state

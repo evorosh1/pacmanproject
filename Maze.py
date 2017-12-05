@@ -27,4 +27,3 @@ class Maze:
             self.ghost.append(ghost.Ghost("Boogie", x, y, 'ghost.png' ))
             self.sprites = pygame.sprite.Group(self.enemies)
     def insertPacman(self):
-        
