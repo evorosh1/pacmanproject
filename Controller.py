@@ -25,7 +25,7 @@ class Controller:
 		font = pygame.font.SysFont('Arial', size)
 		text = font.render(msg, True, color)
 		self.background.blit(text,coords)
-	def game_intro(msg):
+	def game_intro(self, msg):
 		intro = True
 		while intro:
 			for event in pygame.event.get():
@@ -93,7 +93,7 @@ class Controller:
 				self.screen.blit(self.background, (0, 0))
 				self.pacman.update()
 				self.ghosts.update()
-				self.screen.blit(self.pacman, (self.pacman_re
+				self.screen.blit(self.pacman,self.pacman_re)
 				self.sprites.draw(self.screen)
 				pygame.display.flip()
 				"""
