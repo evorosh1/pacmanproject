@@ -22,8 +22,8 @@ class Ghost(pygame.sprite.Sprite):
 		super().__init__()
 		self.image = pygame.image.load(img_file).convert_alpha()
 		self.rect = self.image.get_rect()
-		self.rect.x = x 
-		self.rect.y = y
+		self.x = self.rect.x
+		self.y = self.rect.y
 		#self.size = pygame.Surface.get_size()
 		self.direction = ''
 		self.speed = speed
@@ -45,13 +45,14 @@ class Ghost(pygame.sprite.Sprite):
 			self.ycoord -= 1
 
 	def move_left(self):
-		self.rect.x -= self.speed
+		self.x -= 1
 	def move_right(self):
-		self.rect.x += self.speed
+		self.x += 1
 	def move_up(self):
-		self.rect.y += self.speed
+		self.y += 1
 	def move_down(self):
-		self.rect.y -= self.speed
+		self.y -= 1
+	
 	def getPosition(self):	
 		return (self.rect.x, self.rect.y)
 	
@@ -62,5 +63,6 @@ class Ghost(pygame.sprite.Sprite):
 			pass
 		if self.state == 'frightened':
 			pass
+	
 	def getState(self):
 		return self.state

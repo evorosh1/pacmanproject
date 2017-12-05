@@ -7,6 +7,8 @@ class Pacman():
 		pygame.init()
 		self.image = pygame.image.load(img_file).convert()
 		self.rect = self.image.get_rect()
+		self.x = self.rect.x
+		self.y = self.rect.y
 		#self.size = self.image.Surface.get_size()
 		self.direction = ''
 		self.speed = 5
@@ -16,6 +18,7 @@ class Pacman():
 		self.images = ['pacman_whole.png','pacman_right_1.png','pacman_right_2.png','pacman_left_1.png','pacman_left_2.png','pacman_up_1.png','pacman_up_2.png','pacman_down_1.png','pacman_down_2.png']
 		for i in self.images:
 			i = pygame.image.load(i)
+		self.image = self.images[self.index]
 	def turn(self):
 		if direction == up:
 			self.direction = 'up'
@@ -31,18 +34,28 @@ class Pacman():
 			self.ycoord -= 1
 
 	def move_left(self):
-		self.rect.x -= self.speed
+		self.x -= 1
 	def move_right(self):
-		self.rect.x += self.speed
+		self.x += 1
 	def move_up(self):
-		self.rect.y += self.speed
+		self.y += 1
 	def move_down(self):
-		self.rect.y -= self.speed
-		
-	#def.getPosition(self):
-		#return (self.rect.x, self.rect.y)
+		self.y -= 1
+		self.image = self.animation()
 	
-	def update(self):
+	def animation(self):
+		if self.index < (len(self.images) - 1):
+			self.index += 1
+		else:
+			self.index = 0
+		return self.images[self.index]
+	
+	
+	
+	def getPosition(self):
+		return (self.rect.x, self.rect.y)
+		
+	def	update(self):
 		self.index += 1
 		if self.index >= len(self.images):
 			self.index = 0
