@@ -7,7 +7,7 @@ import Ghost
 from os import path
 
 class Controller:
-	def __init__(self, width = 800, height = 600):
+	def __init__(self, width = 700, height = 750):
 		pygame.init()
 		self.width = width
 		self.height = height
@@ -19,17 +19,13 @@ class Controller:
 		self.ghosts.add(Ghost.Ghost('blue_up_2.png', 190, 80, 6))
 		self.ghosts.add(Ghost.Ghost('pink_down_2.png', 210, 80, 6))
 		self.ghosts.add(Ghost.Ghost('orange_up_2.png', 230, 80, 6))     
-		pacman.lives = len(self.ghosts)
-		
-		
-		
+		Pacman.lives = len(self.ghosts)
 	def mainLoop(self):
-		#self.text.addRect()
-		#self.text.addText()
 		pygame.key.set_repeat(1, 30)
 		running = True
 		while running:
 			self.background.fill((250, 250, 250))
+                        pygame.draw.rect(self.screen, (255,255,255), [0,700, 700, 50])
 			pygame.Rect.inflate(self.maze_rect,(self.screen.get_width(), self.screen.get_height()))
 			self.screen.blit(self.maze, self.maze_rect)
 			for event in pygame.event.get():
