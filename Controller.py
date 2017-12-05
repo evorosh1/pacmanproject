@@ -3,6 +3,7 @@ import pygame
 import random
 import Pacman
 import Ghost
+import Textbox
 from os import path
 
 class Controller:
@@ -13,8 +14,11 @@ class Controller:
 		self.screen = pygame.display.set_mode((self.width, self.height))
 		self.pacman = Pacman.Pacman(100, 100, 'pacman_whole.png')
 		self.ghosts = pygame.sprite.Group()
-		self.background = pygame.Surface(self.screen.get_size()).convert()
+		self.background = pygame.Surface(self.screen.get_size()).convert() 
+		self.text = Textbox()
 	def mainLoop(self):
+		self.text.addRect()
+		self.text.addText()
 		pygame.key.set_repeat(1, 30)
 		self.ghosts.add(Ghost.Ghost('red_left_2.png', 170, 80, 6))
 		self.ghosts.add(Ghost.Ghost('blue_up_2.png', 190, 80, 6))
@@ -25,6 +29,9 @@ class Controller:
 			for event in pygame.event.get():
 				if event.type == pygame.QUIT:
 					sys.exit()
+				if event.type == pygame.K_SPACE:
+					self.text.dissapear()
+					self.ghosts.move()
 				if event.type == pygame.KEYDOWN:
 					if(event.key == pygame.K_UP):
 						self.pacman.move_up()
