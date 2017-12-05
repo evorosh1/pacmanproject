@@ -1,6 +1,6 @@
 import pygame
 
-class Pacman():
+class Pacman(pygame.sprite.Sprite):
 	def __init__(self, img_file):
 		#super().__init__()
 		#super().__init__()
@@ -43,22 +43,21 @@ class Pacman():
 		self.y -= 1
 		self.image = self.animation()
 	
-	def animation(self):
+	def getPosition(self):
+		return (self.rect.x, self.rect.y)
+		
+	def	update(self):
+		"""
+		self.index += 1
+		if self.index >= len(self.images):
+			self.index = 0
+			
+		"""
 		if self.index < (len(self.images) - 1):
 			self.index += 1
 		else:
 			self.index = 0
 		return self.images[self.index]
-	
-	
-	
-	def getPosition(self):
-		return (self.rect.x, self.rect.y)
-		
-	def	update(self):
-		self.index += 1
-		if self.index >= len(self.images):
-			self.index = 0
 		
 	def getDirection(self):
 		return self.direction
