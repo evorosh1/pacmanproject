@@ -66,3 +66,6 @@ class Ghost(pygame.sprite.Sprite):
 	
 	def getState(self):
 		return self.state
+		
+	def update(self);
+		print("updating position")
