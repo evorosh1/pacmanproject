@@ -64,6 +64,7 @@ class Pacman(pygame.sprite.Sprite):
 		return self.images[self.index]
 		"""
 		
+		
 	def getDirection(self):
 		return self.direction
 		
