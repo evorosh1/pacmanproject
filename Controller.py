@@ -15,8 +15,8 @@ class Controller:
 		self.screen = pygame.display.set_mode((self.width, self.height))
 		self.background = pygame.Surface(self.screen.get_size()).convert()
 		self.pacman = Pacman.Pacman('pacman_whole.png')
-		self.maze = Maze.Maze('empty_maze.png')
-		self.maze_image
+		self.maze_image = Maze.Maze('empty_maze.png')
+		#self.maze_image
 		#self.pacman_rect = ?????????????
 		self.ghosts = pygame.sprite.Group()
 		self.ghosts.add(Ghost.Ghost('red_left_2.png', 170, 80, 6))
@@ -36,9 +36,10 @@ class Controller:
 			pygame.draw.rect(self.screen, (255,255,255), [0,300,700, 100])
 			self.message_to_screen(msg,(0,0,0), 45,(5, 310))
 			for event in pygame.event.get():
-				if event.type == pygame.K_SPACE:
-					self.screen.blit(self.background, (0,0))
-					intro = False
+				if (event.type == pygame.KEYDOWN):
+					if (event.type == pygame.K_SPACE):
+						self.screen.blit(self.background, (0,0))
+						intro = False
 			pygame.display.update()
 			
 	

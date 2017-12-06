@@ -6,8 +6,8 @@ class Maze:
 
 	def __init__(self, imgfile):
 		pygame.init()
-		self.walls_file = open('Maze.txt','r')
-		self.wallrect_array = []
+		self.file = open('Maze.txt','r')
+		#self.wallrect_array = []
 		for symbol in self.file:
 			if symbol == "%":
 				#pacman.moveable = False
@@ -28,7 +28,7 @@ class Maze:
 				insertPacman()
 				
 		self.empty_maze = pygame.image.load('empty_maze.png').convert()
-		self.pacman = pygame.load('pacman_whole.png').convert()
+		self.pacman = pygame.image.load('pacman_whole.png').convert()
 		
 	def showWalls(self):
 		return image
