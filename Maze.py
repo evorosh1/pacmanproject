@@ -8,7 +8,6 @@ class Maze:
 #disable move_up/down etc
         def __init__(self):
                 pygame.init()
-                self.imgfile = imgfile
                 self.empty_maze = pygame.image.load(self.imgfile).convert()
                 self.pacman = pygame.image.load('pacman_whole.png').convert()
                                                
