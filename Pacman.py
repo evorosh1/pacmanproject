@@ -23,9 +23,10 @@ class Pacman(pygame.sprite.Sprite):
 		self.up_list = ['pacman_up_1.png','pacman_up_2.png']
 		for i in self.images:
 			i = pygame.image.load(i)
+		
 	
 	def turn(self):
-		if self.direction == up:
+		if self.direction == 'up':
 			self.rect.y += 1
 		if direction == right:
 			self.direction = 'right'
@@ -55,11 +56,13 @@ class Pacman(pygame.sprite.Sprite):
 		
 	def	update(self):
 		self.turn()
+		"""
 		if self.index < (len(self.images) - 1):
 			self.index += 1
 		else:
 			self.index = 0
 		return self.images[self.index]
+		"""
 		
 	def getDirection(self):
 		return self.direction
