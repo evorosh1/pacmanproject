@@ -9,29 +9,28 @@ class Maze:
 	def __init__(self):
 		pygame.init()
 		self.file = open('Maze.txt','r')
-		#self.wallrect_array = []
-		for symbol in self.file:
-			if symbol == "%":
-				#pacman.moveable = False
-				for i in range(18):
-					for j in range(18):
-						self.rect = pygame.Rect(i, j, 37, 37)
-		
-		self.walls_file = open('Maze.txt', 'r')
-		for line in self.walls_file:
-			if symbol == "%":
-				#pacman.moveable = False
-				for i in range(18):
-					for j in range(18):
-						self.rect= pygame.Rect(i, j, 37, 37)
-			#elif symbol == "G":
-				#insertGhost()
-			#elif symbol == "P":
-				#insertPacman()
-				
+		mylist = []
+		for line in self.file:
+			mylist.append([c for c in line])
+			#if c == "%":
+                                #Pacman.canMove = False
+		for i in range(0,len(mylist)):
+			for j in range(0,mylist[i]):
+				mylist[i][j] = pygame.Rect(37 * i, 37 * j, 37, 37)
+								
 		self.empty_maze = pygame.image.load(imgfile).convert()
 		self.pacman = pygame.image.load('pacman_whole.png').convert()
-		
+		self.file.close()
+		return mylist
+	#def canMove(self):
+	#        if (self.x > 663):
+	#                move_right.enabled = False
+	#        elif (self.x < 37):
+	#               move_left.enabled = False
+	#        elif (self.y > 663):
+	#                move_up.enabled = False
+	#        elif (self.y < 37):
+	#                move_down.enabled = False
 	def showWalls(self):
 		return image
 	def makeWalls(self):
