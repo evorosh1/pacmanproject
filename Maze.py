@@ -4,7 +4,7 @@ import Ghost
 import Pacman
 class Maze:
 
-	def __init__(self):
+	def __init__(self, imgfile):
 		pygame.init()
 		self.file = open('Maze.txt','r')
 		for symbol in self.file:
