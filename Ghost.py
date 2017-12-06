@@ -39,7 +39,11 @@ class Ghost(pygame.sprite.Sprite):
 		self.orange_down = ['orange_down_1.png', 'orange_down_2.png']
 		self.orange_right = ['orange_right_1.png', 'orange_right_2.png']
 		self.orange_left = ['orange_left_1.png', 'orange_left_2.png']
-
+		
+		self.ghost_images = [self.red_down, self.red_up, self.red_left, self.red_right, self.blue_down, self.blue_up, self.blue_left, self.blue_right, self.pink_up, self.pink_down, self.pink_right, self.pink_left, self.orange_up, self.orange_down, self.orange_left, self.orange_right]
+		for i in range(len(self.ghost_images)):
+			for j in range(len(self.ghost_images[i])):
+				self.ghost_images[i][j] = pygame.image.load(self.ghost_images[i][j])
 	def turn(self):
 		if direction == up:
 			self.direction = "Up"

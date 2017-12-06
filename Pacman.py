@@ -23,7 +23,7 @@ class Pacman(pygame.sprite.Sprite):
         self.images = [self.right_list, self.left_list, self.down_list, self.up_list]
         for index in self.images:
                 for i in index:
-                        i = pygame.image.load(i)
+                        i = pygame.image.load(i).convert()
         
     def start(self):
         self.screen.blit(pygame.transform.smoothscale(self.image, (30,30)),(self.x,self.y))
