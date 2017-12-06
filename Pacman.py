@@ -56,13 +56,13 @@ class Pacman(pygame.sprite.Sprite):
 		
 	def	update(self):
 		self.turn()
-		"""
+		
 		if self.index < (len(self.images) - 1):
 			self.index += 1
 		else:
 			self.index = 0
 		return self.images[self.index]
-		"""
+		
 		
 		
 	def getDirection(self):
@@ -72,3 +72,5 @@ class Pacman(pygame.sprite.Sprite):
 		#cant push to remote if you have not updated
 		#maybe make size of pacman smaller than rectangle
 		#is the image array in pacman or controller?
+		
+		

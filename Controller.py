@@ -15,8 +15,8 @@ class Controller:
 		self.screen = pygame.display.set_mode((self.width, self.height))
 		self.background = pygame.Surface(self.screen.get_size()).convert()
 		self.pacman = Pacman.Pacman('pacman_whole.png')
-		self.maze = Maze.Maze()
-		
+		self.maze = Maze.Maze('empty_maze.png')
+		self.maze_image
 		#self.pacman_rect = ?????????????
 		self.ghosts = pygame.sprite.Group()
 		self.ghosts.add(Ghost.Ghost('red_left_2.png', 170, 80, 6))
