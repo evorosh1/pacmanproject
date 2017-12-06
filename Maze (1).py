@@ -9,11 +9,14 @@ class Maze:
         self.file = open('Maze.txt','r')
         for symbol in self.file:
             if symbol == "%":
-                insertWall()
+                #pacman.moveable = False
+                for i in range(18):
+                    for j in range(18):
+                        pygame.Rect(i, j, 37, 37)
             elif symbol == ".":
-                insertPellet()
+                cookie.insertCookie()
             elif symbol == "o":
-                insertCookie()
+                insertSpecialCookie()
             elif symbol == "G":
                 insertGhost()
             elif symbol == "P":
@@ -23,13 +26,13 @@ class Maze:
 	self.pacman = pygame.load('.png').convert()
 	
     def showWall(self):
-	return image, image.get_rect()
-    def insertWall(self):
-        pygame.draw.line()
-    def insertPellet(self):
-        pygame.draw.circle(self, white, (mylist[i]), 2, width=2)
+	return image, image.get_rect()     
     def insertCookie(self):
-        pygame.draw.circle(self, blue, (mylist[i]), 4, width=4)
+        pygame.draw.circle(self, white, (mylist[i]), 2, width=2)
+        pacman.moveable = True
+    def insertSpecialCookie(self):
+        pygame.draw.circle(self, blue, (mylist[i]), 4, width = 4)
+        pacman.moveable = True
     def insertGhost(self):
         for i in range(4):
             self.ghost.append(ghost.Ghost("Boogie", x, y, 'ghost.png' ))
