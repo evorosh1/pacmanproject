@@ -4,6 +4,8 @@ import Ghost
 import Pacman
 class Maze:
 
+#max/min x/y
+#disable move_up/down etc
 	def __init__(self):
 		pygame.init()
 		self.file = open('Maze.txt','r')

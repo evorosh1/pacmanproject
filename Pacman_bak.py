@@ -46,25 +46,25 @@ class Pacman(pygame.sprite):
 		
 	def update(self):
 		print("Updating the position")
-		piclist = ['pacman_whole.png', halfopen, fullopen]
 		if pacman.move_up == True:
-                        halfopen = 'pacman_up_1.png'
-                        fullopen = 'pacman_up_2.png'         
-                elif pacman.move_down == True:
-                        halfopen = 'pacman_down_1.png'
-                        fullopen = 'pacman_down_2.png'
-                elif pacman.move_left == True:			
-                        halfopen = 'pacman_left_1.png'
-                        fullopen = 'pacman_left_2.png'
+			halfopen = 'pacman_up_1.png'
+			fullopen = 'pacman_up_2.png'         
+		elif pacman.move_down == True:
+			halfopen = 'pacman_down_1.png'
+			fullopen = 'pacman_down_2.png'
+		elif pacman.move_left == True:			
+			halfopen = 'pacman_left_1.png'
+			fullopen = 'pacman_left_2.png'
 		elif pacman.move_right == True:			
-                        halfopen = 'pacman_right_1.png'
-                        fullopen = 'pacman_right_2.png'
-                else:
-                        halfopen = 'pacman_right_1.png'
-                        fullopen = 'pacman_right_2.png'
-                for pic in piclist:
-                        self.pacman.image.load(pic)
-                
+			halfopen = 'pacman_right_1.png'
+			fullopen = 'pacman_right_2.png'
+		else:
+			halfopen = 'pacman_right_1.png'
+			fullopen = 'pacman_right_2.png'
+		piclist = ['pacman_whole.png', halfopen, fullopen]
+		for pic in piclist:
+			self.pacman.image.load(pic)
+		
 		
 		#array of images
 		#cant push to remote if you have not updated
