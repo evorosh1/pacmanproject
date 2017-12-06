@@ -4,16 +4,6 @@ import random
 
 class Ghost(pygame.sprite.Sprite):
 	"""
-	self.red_ghost = ['red_left_1.png', 'red_left_2.png', 'red_right_1.png', 'red_right_2.png', 'red_up_1.png', 'red_up_2.png', 'red_down_1.png', 'red_down_2.png']
-	for i in self.red_ghost:
-			i = pygame.image.load(i)
-			self.red = self.image.get_rect()
-		self.blue_ghost = ['blue_left_1.png', 'blue_left_2.png', 'blue_right_1.png', 'blue_right_2.png', 'blue_up_1.png', 'blue_up_2.png', 'blue_down_1.png', 'blue_down_2.png']
-		for i in self.blue_ghost:
-			i = pygame.image.load(i)
-			
-	"""
-	"""
 	Initializes a Ghost object
 	Params: 
 	Returns: none
@@ -30,19 +20,38 @@ class Ghost(pygame.sprite.Sprite):
 		self.speed = speed
 		self.state = 'chase'
 		self.isAtWall = False
+		self.red_down = ['red_down_1.png', 'red_down_2.png']
+		self.red_right = ['red_right_1.png', 'red_right_2.png']
+		self.red_left = ['red_left_1.png', 'red_left_2.png']
+		self.red_up = ['red_up_1.png', 'red_up_2.png']
+		
+		self.blue_down = ['blue_down_1.png', 'blue_down_2.png']
+		self.blue_right = ['blue_right_1.png', 'blue_right_2.png']
+		self.blue_left = ['blue_left_1.png', 'blue_left_2.png']
+		self.blue_up = ['blue_up_1.png', 'blue_up_2.png']
+		
+		self.pink_down = ['pink_down_1.png', 'pink_down_2.png']
+		self.pink_right = ['pink_right_1.png', 'pink_right_2.png']
+		self.pink_left = ['pink_left_1.png', 'pink_left_2.png']
+		self.pink_up = ['pink_up_1.png', 'pink_up_2.png']
+		
+		self.orange_up = ['orange_up_1.png', 'orange_up_2.png']
+		self.orange_down = ['orange_down_1.png', 'orange_down_2.png']
+		self.orange_right = ['orange_right_1.png', 'orange_right_2.png']
+		self.orange_left = ['orange_left_1.png', 'orange_left_2.png']
 
 	def turn(self):
 		if direction == up:
-			self.direction = 'up'
+			self.direction = "Up"
 			self.ycoord += 1
 		if direction == right:
-			self.direction = 'right'
+			self.direction = "Right"
 			self.xcoord += 1
 		if direction == down:
-			self.direction = 'down'
+			self.direction = "Down"
 			self.ycoord -= 1
 		if direction == left:
-			self.direction = 'left'
+			self.direction = "Left"
 			self.ycoord -= 1
 
 	def move_left(self):
@@ -56,6 +65,33 @@ class Ghost(pygame.sprite.Sprite):
 	
 	def getPosition(self):	
 		return (self.rect.x, self.rect.y)
+		
+	def get_direction(self):
+		self.dir = self.turn()
+		if self.dir == "Down":
+				if self.x % 2 == 0:
+					  self.img = self.down_list[0]
+				else:
+					  self.img = self.down_list[1]
+		elif self.dir == "Up":
+				if self.x % 2 == 0:
+					  self.img = self.up_list[0]
+				else:
+					  self.img = self.up_list[1]
+		elif self.dir == "Left":
+				if self.x % 2 == 0:
+					  self.img = self.left_list[0]
+				else:
+					  self.img = self.left_list[1]
+		elif self.dir == "Right":
+				if self.x % 2 == 0:
+					  self.img = self.right_list[0]
+		else:
+				self.img = self.right_list[1]
+		
+		self.loaded_img = pygame.image.load(self.img)
+		self.resized_img = pygame.transform.smoothscale(self.loaded_img, (30,30))
+		return self.resized_img
 	
 	def changeState(self):
 		if self.state == 'chase':

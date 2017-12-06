@@ -13,7 +13,7 @@ class Pacman(pygame.sprite.Sprite):
         self.x = x
         self.y = y
         self.direction = ''
-        self.speed = 20
+        self.speed = 5
         self.isAlive = True
         self.isAtWall = False
         self.right_list = ['pacman_right_1.png','pacman_right_2.png']
