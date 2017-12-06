@@ -64,7 +64,8 @@ class Ghost(pygame.sprite.Sprite):
 			pass
 		if self.state == 'frightened':
 			pass
-	def edible(self)
+	def edible(self):
+		pass
 	def getState(self):
 		return self.state
 		
