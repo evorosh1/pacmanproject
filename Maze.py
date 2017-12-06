@@ -18,7 +18,11 @@ class Maze:
 		"""
 		self.walls_file = open('Maze(1).txt', 'r')
 		for line in self.walls_file:
-			
+			if symbol == "%":
+				#pacman.moveable = False
+				for i in range(18):
+					for j in range(18):
+						pygame.Rect(i, j, 37, 37)
 			elif symbol == ".":
 				cookie.insertCookie()
 			elif symbol == "o":
@@ -34,7 +38,7 @@ class Maze:
 	def showWalls(self):
 		return image
 	def makeWalls(self):
-		
+		pass
 	def insertCookie(self):
 		pygame.draw.circle(self, white, (mylist[i]), 2, width = 2)
 		pacman.moveable = True
