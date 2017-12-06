@@ -16,7 +16,7 @@ class Maze:
 					for j in range(18):
 						wallrect_array[] = pygame.Rect(i, j, 37, 37)
 		"""
-		self.walls_file = open('Maze(1).txt', 'r')
+		self.walls_file = open('Maze.txt', 'r')
 		for line in self.walls_file:
 			if symbol == "%":
 				#pacman.moveable = False

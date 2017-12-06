@@ -24,7 +24,7 @@ class Controller:
 		self.ghosts.add(Ghost.Ghost('pink_down_2.png', 210, 80, 6))
 		self.ghosts.add(Ghost.Ghost('orange_up_2.png', 230, 80, 6))		
 		self.pacman.lives = len(self.ghosts)
-	"""
+
 	def message_to_screen(self, msg, color, size, coords):
 		pygame.init()
 		self.font = pygame.font.SysFont('Arial', size)
@@ -41,7 +41,7 @@ class Controller:
 					intro = False
 			pygame.display.update()
 			
-	"""
+	
 	def mainLoop(self):
 		pygame.key.set_repeat(1, 30)
 		running = True
@@ -51,13 +51,13 @@ class Controller:
 			self.screen.blit(self.maze, self.maze_rect)
 			
 			for event in pygame.event.get():
-				if event.type == pygame.QUIT:
+				if (event.type == pygame.QUIT):
 					sys.exit()
-				if event.type == pygame.KEYDOWN:
-						if event.type == pygame.K_q:
+				if (event.type == pygame.KEYDOWN):
+						if (event.type == pygame.K_q):
 								pygame.quit()
 								quit()
-						if(event.key == pygame.K_UP):
+						elif(event.key == pygame.K_UP):
 								self.pacman.move_up()
 						elif(event.key == pygame.K_DOWN):
 								self.pacman.move_down()
@@ -65,8 +65,7 @@ class Controller:
 								self.pacman.move_left()
 						elif(event.key == pygame.K_RIGHT):
 								self.pacman.move_right()
-				#elif(event.key == pygame.K_SPACE):
-				#self.text.disappear()
+				
 				#self.ghost.move()
 				#if event.type == pygame.KEYUP:
 				#checks if pacman gets eaten by ghost or if ghost eats pacman
@@ -96,7 +95,7 @@ class Controller:
 
 def main():
 		main_window = Controller()
-		#main_window.message_to_screen(("Use arrow keys to move pacman, press q to end game, if the ghost eats you 3 times you die, eat all the pellets to win"), (255,255,255), 15, (5,705))
-		#main_window.game_intro("Press Spacebar to start playing Pacman :)")
+		main_window.message_to_screen(("Use arrow keys to move pacman, press q to end game, if the ghost eats you 3 times you die, eat all the pellets to win"), (255,255,255), 15, (5,705))
+		main_window.game_intro("Press Spacebar to start playing Pacman :)")
 		main_window.mainLoop()
 main()
