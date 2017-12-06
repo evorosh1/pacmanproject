@@ -47,7 +47,7 @@ class Controller:
             pygame.display.flip()
 
     def drawRect(self):
-        myrect = Maze.Maze()
+        myrect = Maze.createRect()
         self.draw_maze = pygame.draw.rect(self.screen,'white', myrect,width = 4)
             
     
