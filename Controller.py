@@ -3,7 +3,7 @@ import pygame
 import random
 import Pacman
 import Ghost
-import Maze(1)
+import Maze
 #import textbox
 from os import path
 
@@ -16,6 +16,7 @@ class Controller:
 		self.background = pygame.Surface(self.screen.get_size()).convert()
 		self.pacman = Pacman.Pacman('pacman_whole.png')
 		self.maze = Maze.Maze()
+		
 		#self.pacman_rect = ?????????????
 		self.ghosts = pygame.sprite.Group()
 		self.ghosts.add(Ghost.Ghost('red_left_2.png', 170, 80, 6))
