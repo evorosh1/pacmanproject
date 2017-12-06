@@ -20,6 +20,7 @@ class Ghost(pygame.sprite.Sprite):
 	"""
 	def __init__(self, img_file, x, y, speed):
 		super().__init__()
+		pygame.sprite.Sprite.__init__(self)
 		self.image = pygame.image.load(img_file).convert_alpha()
 		self.rect = self.image.get_rect()
 		self.x = self.rect.x
@@ -63,7 +64,7 @@ class Ghost(pygame.sprite.Sprite):
 			pass
 		if self.state == 'frightened':
 			pass
-	
+	def edible(self)
 	def getState(self):
 		return self.state
 		

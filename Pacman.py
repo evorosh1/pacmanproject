@@ -5,6 +5,7 @@ class Pacman(pygame.sprite.Sprite):
 		#super().__init__()
 		#super().__init__()
 		pygame.init()
+		pygame.sprite.Sprite.__init__(self)
 		self.image = pygame.image.load(img_file).convert()
 		self.rect = self.image.get_rect()
 		self.x = self.rect.x
@@ -49,7 +50,7 @@ class Pacman(pygame.sprite.Sprite):
 		self.y -= 1
 		self.images = self.down_list
 	
-	def getPosition(self):
+	def get_position(self):
 		return (self.rect.x, self.rect.y)
 		
 	def	update(self):
