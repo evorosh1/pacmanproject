@@ -4,7 +4,7 @@ import Ghost
 import Pacman
 class Maze:
 
-	def __init__(self, imgfile):
+	def __init__(self):
 		pygame.init()
 		self.file = open('Maze.txt','r')
 		#self.wallrect_array = []
@@ -13,7 +13,7 @@ class Maze:
 				#pacman.moveable = False
 				for i in range(18):
 					for j in range(18):
-						pygame.Rect(i, j, 37, 37)
+						self.rect = pygame.Rect(i, j, 37, 37)
 		
 		self.walls_file = open('Maze.txt', 'r')
 		for line in self.walls_file:
@@ -21,13 +21,13 @@ class Maze:
 				#pacman.moveable = False
 				for i in range(18):
 					for j in range(18):
-						pygame.Rect(i, j, 37, 37)
-			elif symbol == "G":
-				insertGhost()
-			elif symbol == "P":
-				insertPacman()
+						self.rect= pygame.Rect(i, j, 37, 37)
+			#elif symbol == "G":
+				#insertGhost()
+			#elif symbol == "P":
+				#insertPacman()
 				
-		self.empty_maze = pygame.image.load('empty_maze.png').convert()
+		self.empty_maze = pygame.image.load(imgfile).convert()
 		self.pacman = pygame.image.load('pacman_whole.png').convert()
 		
 	def showWalls(self):
