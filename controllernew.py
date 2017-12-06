@@ -58,6 +58,7 @@ class Controller:
             self.message_to_screen(("Use arrow keys to move pacman, press q to end game, if the ghost eats you 3 times you die, eat all the pellets to win"), (255,255,255), 15, (5,705))
             self.screen.blit(self.resized, (700,700))
             self.pacman.start()
+            self.drawRect()
             for event in pygame.event.get():
                 if (event.type == pygame.QUIT):
                         running = False
@@ -112,5 +113,6 @@ def main():
         pygame.display.flip()
         main_window.mainLoop()
         pygame.display.update()
+
 main()
-drawRect()
+

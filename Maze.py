@@ -8,10 +8,10 @@ class Maze:
 #disable move_up/down etc
         def __init__(self):
                 pygame.init()
-                self.empty_maze = pygame.image.load(imgfile).convert()
+                self.imgfile = imgfile
+                self.empty_maze = pygame.image.load(self.imgfile).convert()
                 self.pacman = pygame.image.load('pacman_whole.png').convert()
-                self.file.close()
-                
+                               
         #def canMove(self):
         #        if (self.x > 663):
         #                move_right.enabled = False
@@ -32,7 +32,9 @@ class Maze:
                 for i in range(0,len(mylist)):
                         for j in range(0,mylist[i]):
                                 mylist[i][j] = pygame.Rect(37 * i, 37 * j, 37, 37)
-                return mylist
+                self.file.close()
+                print(mylist)
+                #return mylist
         def showWalls(self):
                 return image
         def makeWalls(self):
@@ -43,4 +45,4 @@ class Maze:
                         self.sprites = pygame.sprite.Group(self.enemies)
         def insertPacman(self):
                 pass
-                
+ 
