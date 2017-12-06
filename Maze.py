@@ -7,33 +7,19 @@ class Maze:
 #max/min x/y
 #disable move_up/down etc
         def __init__(self):
-                pygame.init()
-                self.empty_maze = pygame.image.load(self.imgfile).convert()
-                self.pacman = pygame.image.load('pacman_whole.png').convert()
-                                               
-        #def canMove(self):
-        #        if (self.x > 663):
-        #                move_right.enabled = False
-        #        elif (self.x < 37):
-        #               move_left.enabled = False
-        #        elif (self.y > 663):
-        #                move_up.enabled = False
-        #        elif (self.y < 37):
-        #                move_down.enabled = False
+                pygame.init()      
 
         def createRect(self):
                 self.file = open('Maze.txt','r')
                 mylist = []
                 for line in self.file:
                         mylist.append([c for c in line])
-                        #if c == "%":
-                                #Pacman.canMove = False
-                for i in range(0,len(mylist)):
-                        for j in range(0,mylist[i]):
-                                mylist[i][j] = pygame.Rect(37 * i, 37 * j, 37, 37)
+                        if c == "%":
+                                for i in range(0,len(mylist)):
+                                        for j in range(0,mylist[i]):
+                                                mylist[i][j] = pygame.rect(37 * i, 37 * j, 37, 37)
                 self.file.close()
-                print(mylist)
-                #return mylist
+                return mylist
         def showWalls(self):
                 return image
         def makeWalls(self):
