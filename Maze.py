@@ -11,7 +11,7 @@ class Maze:
                 self.imgfile = imgfile
                 self.empty_maze = pygame.image.load(self.imgfile).convert()
                 self.pacman = pygame.image.load('pacman_whole.png').convert()
-                               
+                                               
         #def canMove(self):
         #        if (self.x > 663):
         #                move_right.enabled = False
