@@ -14,13 +14,15 @@ class Cookies(pygame.sprite.Sprite):
 		self.size = pygame.Surface.get_size()
 		self.pacman = Pacman
                 self.specialcookie
-        def get_postion(self):
+	def get_postion(self):
+		pass
                 
 	def disappear(self):
                 eaten = False
                 while not eaten:
                         if (self.pacman.get_position == self.cookie)
-                        
+						
+	def draw(self):
 	
 	def getType(self):
 		return self.type
