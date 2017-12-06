@@ -14,7 +14,7 @@ class Controller:
         self.height = height
         self.screen = pygame.display.set_mode((self.width, self.height))
         self.background = pygame.Surface(self.screen.get_size()).convert()
-        self.pacman = Pacman.Pacman(100, 100, 'pacman_whole.png')
+        self.pacman = Pacman.Pacman(337, 520)
         self.maze_image = pygame.image.load('empty_maze.png')
         self.resized = pygame.transform.smoothscale(self.maze_image, (700,700))
         #self.maze_image
