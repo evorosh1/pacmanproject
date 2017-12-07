@@ -9,6 +9,11 @@ class Ghost(pygame.sprite.Sprite):
   Returns: none
   """
   def __init__(self, image, x, y):
+	"""
+	Initializes ghost object
+	params: image, x, y
+	returns: none
+	"""
     super().__init__()
     self.screensize = (700,700)
     self.screen = pygame.display.set_mode(self.screensize)
@@ -68,10 +73,20 @@ class Ghost(pygame.sprite.Sprite):
     '''
     self.listdir= ["Up","Down", "Left", "Right"]
  
-  def getPosition(self):  
+  def getPosition(self):
+	"""
+	Returns the coordinates of the pacman object
+	params: none
+	returns: self.rect.x, self.rect.y
+	"""
     return (self.rect.x, self.rect.y)
     
   def get_direction(self):
+  """
+	Returns the coordinates of the pacman object
+	params: none
+	returns: self.rect.x, self.rect.y
+	"""
         self.index = random.randint(0,3)
         self.dir = self.listdir[self.index]
         if self.dir  == "Down":
@@ -86,23 +101,22 @@ class Ghost(pygame.sprite.Sprite):
           self.rect.x += 2
         return (self.rect.x, self.rect.y)
   def start(self):  
+  """
+	blits ghost image onto screen
+	params: none
+	returns: none
+	"""
     self.screen.blit(self.image,(self.rect.x, self.rect.y))
   def get_img(self):
+  """
+  Gets image as surface
+  params: none
+  returns: self.image
+  """
     self.img = 'red_up_2.png'
     self.image = pygame.image.load(self.img).convert_alpha()
     return self.image
-                
-  def changeState(self):
-    if self.state == 'chase':
-      pass
-    if self.state == 'scatter':
-      pass
-    if self.state == 'frightened':
-      pass
-  def edible(self):
-    pass
-  def getState(self):
-    return self.state
+
     
   def update(self):
     return( self.rect.x, self.rect.y)
