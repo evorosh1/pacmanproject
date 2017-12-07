@@ -5,7 +5,6 @@ import Pacman
 import Ghost
 import Maze
 import Cookies
-#import textbox
 from os import path
 
 class Controller:
@@ -72,7 +71,7 @@ class Controller:
                         self.screen.blit(self.resized, (0,0))
                         intro = False
             pygame.display.flip()
-            
+          
     
     def mainLoop(self):
         '''
