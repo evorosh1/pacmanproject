@@ -17,7 +17,7 @@ class Maze:
                         if c == "%":
                                 for i in range(0,len(mylist)):
                                         for j in range(0,mylist[i]):
-                                                mylist[i][j] = pygame.rect(37 * i, 37 * j, 37, 37)
+                                                mylist[i][j] = pygame.rect(i*20,j*20,20,20)
                 self.file.close()
                 return mylist
         def showWalls(self):

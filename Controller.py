@@ -8,7 +8,7 @@ import Maze
 from os import path
 
 class Controller:
-    def __init__(self, width = 700, height = 790):
+    def __init__(self, width = 580, height = 700):
         pygame.init()
         self.width = width
         self.height = height
@@ -16,7 +16,7 @@ class Controller:
         self.background = pygame.Surface(self.screen.get_size()).convert()
         self.pacman = Pacman.Pacman(337, 520)
         self.maze_image = pygame.image.load('empty_maze.png')
-        self.resized = pygame.transform.smoothscale(self.maze_image, (700,700))
+        self.resized = pygame.transform.smoothscale(self.maze_image, (580,620))
         #self.maze_image
         #self.pacman_rect = ?????????????
         self.ghosts = pygame.sprite.Group()
