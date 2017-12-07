@@ -41,8 +41,5 @@ class Maze:
                 '''
                 return image
         
-def mainLoop():
-        mazey = Maze()
-        print(mazey.createRect)
-mainLoop()
+
 
