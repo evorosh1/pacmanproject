@@ -9,6 +9,11 @@ from os import path
 
 class Controller:
     def __init__(self, width = 580, height = 700):
+        '''
+        initializes the controller class and sets up the window
+        inputs: width and height of window
+        outputs: pacman screen
+        '''
         pygame.init()
         self.width = width
         self.height = height
@@ -27,10 +32,20 @@ class Controller:
         self.pacman.lives = len(self.ghosts)
 
     def message_to_screen(self, msg, color, size, coords):
+        '''
+        displays message on screen
+        inputs: message, color, size, and coordinates (tuple)
+        outputs: message on screen
+        '''
         self.font = pygame.font.SysFont('Arial', size)
         self.text = self.font.render(msg, True, color)
         self.screen.blit(self.text,coords)
     def game_intro(self, msg):
+        '''
+        displays an intro message on the screen
+        inputs: message
+        outputs: message relaying directions
+        '''
         intro = True
         while intro:
             pygame.draw.rect(self.screen, (255,255,255), [0,300,700, 100])
@@ -47,6 +62,11 @@ class Controller:
             
     
     def mainLoop(self):
+        '''
+        runs events for the game
+        inputs: key presses
+        outputs: events, updating pacman
+        '''
         pygame.key.set_repeat(1, 30)
         running = True
         while running:
