@@ -2,16 +2,11 @@ import pygame
 
 class Pacman(pygame.sprite.Sprite):
     def __init__(self, x, y, image):
-	"""
-	Initializes a Pacman object
-	params: x, y, image
-	returns: none
-	"""
         #super().__init__()
         #super().__init__()
         pygame.init()
         pygame.sprite.Sprite.__init__(self)
-        self.screensize = (700,700)
+        self.screensize = (580,620)
         self.screen = pygame.display.set_mode(self.screensize)
         #self.size = self.image.Surface.get_size()
         self.image = pygame.image.load(image).convert()
@@ -33,50 +28,22 @@ class Pacman(pygame.sprite.Sprite):
                         i = pygame.image.load(i)
         '''
     def start(self):
-	"""
-	Blits the pacman image onto the screen
-	params: none
-	returns: none
-	"""
         self.screen.blit(pygame.transform.smoothscale(self.image, (30,30)),(self.rect.x,self.rect.y))
     def move_left(self):
-	 """
-	Moves pacman left
-	params: none
-	returns: none
-	"""
-        self.rect.x -= 1
-
+        self.rect.x -= 3
+        
+        
     def move_right(self):
-	"""
-	Moves pacman right
-	params: none
-	returns: none
-	"""
-        self.rect.x += 1
+        self.rect.x += 3
+        
         
     def move_up(self):
-	"""
-	Moves pacman up
-	params: none
-	returns: none
-	"""    
-        self.rect.y -= 1
-    
+        self.rect.y -= 3
+        
     def move_down(self):
-	"""
-	Moves pacman down
-	params: none
-	returns: none
-	"""    
-        self.rect.y += 1
-  
+        self.rect.y += 3
+    
     def get_position(self):
-	"""
-	Returns pacman position
-	params: none
-	returns: self.rect.x, self.rect.y
-	"""
         return (self.rect.x, self.rect.y)
     
     
@@ -112,11 +79,6 @@ class Pacman(pygame.sprite.Sprite):
         self.resized_img = self.rect.inflate_ip(30,30)
         return self.resized_img
      '''
-	"""
-	Blits the pacman image onto the screen
-	params: none
-	returns: resized pacman image
-	"""
     def get_img(self):
         self.img = 'pacman_left_1.png'
         self.image = pygame.image.load(self.img).convert_alpha()
@@ -124,11 +86,6 @@ class Pacman(pygame.sprite.Sprite):
         return self.resized_img
     
     def update(self):
-	"""
-	Returns the coordinates of the pacman object
-	params: none
-	returns: self.rect.x, self.rect.y
-	"""
         return (self.rect.x, self.rect.y)
         
         
